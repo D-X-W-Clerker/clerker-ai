@@ -9,8 +9,6 @@ langchain-experimental==0.3.3
 langchain-huggingface==0.1.2
 langchain-text-splitters==0.3.2
 matplotlib
-matplotlib
 transformers
 wordcloud
 konlpy
-# llama_cpp_python==0.3.1
