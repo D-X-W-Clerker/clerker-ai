@@ -1,0 +1,17 @@
+requests
+pydub
+librosa
+soundfile
+numpy
+scipy
+tqdm
+tf-keras
+langchain==0.3.7
+langchain-experimental==0.3.3
+langchain-huggingface==0.1.2
+langchain-text-splitters==0.3.2
+huggingface_hub==0.26.2
+matplotlib
+transformers==4.46.2
+wordcloud
+konlpy
