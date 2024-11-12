@@ -52,7 +52,7 @@ def download_mp3(mp3_url, local_path):
         raise Exception(f"Failed to download MP3 file from {mp3_url}. Status code: {response.status_code}")
 
 def model_load():
-    local_model_dir = 'models'
+    local_model_dir = 'models/'
     os.makedirs(local_model_dir, exist_ok=True)
 
     model_folders = [
