@@ -1,0 +1,59 @@
+{
+  "diagrams": {
+      "Flowchart": {
+          "example1": "flowchart LR\n    subgraph subgraph1\n        direction TB\n        top1[top] --> bottom1[bottom]\n    end\n    subgraph subgraph2\n        direction TB\n        top2[top] --> bottom2[bottom]\n    end\n    %% ^ These subgraphs are identical, except for the links to them:\n\n    %% Link *to* subgraph1: subgraph1 direction is maintained\n    outside --> subgraph1\n    %% Link *within* subgraph2:\n    %% subgraph2 inherits the direction of the top-level graph (LR)\n    outside ---> top2",
+          "example2": "graph LR\n    A[Start] -->|인터페이스| B{자원 활용 가능 여부}\n    B -- Yes --> C[GPU 비교 필요]\n    C --> D[서치 및 분석]\n    D --> E[결과 분석]\n    B -- No --> F[다른 대안 탐색]\n    F --> G[다른 솔루션 검토]\n    G --> H[결정]\n    H --> I[인퍼런스 시작]",
+          "description": "Two flowchart examples: the first shows a basic decision-making process starting from 'Start' and ending at 'End'. The second introduces directional flow and decision points with more descriptive labels for each outcome."
+      },
+      "Sequence Diagram": {
+          "example1": "sequenceDiagram\n    Alice->>John: Hello John, how are you?\n    John-->>Alice: Great!\n    Alice-->>John: See you later!",
+          "example2": "sequenceDiagram\n    participant LLM as 대규모 언어 모델\n    participant HTML as HTML\n    participant INF as 인퍼런스\n    participant Optimizer as 최적화 옵션\n    Note left of LLM: LLM 파트에서 청크가 많아지면 HTML이 깨진다\n    Note right of LLM: 최소 길이를 정하여 LLM에 넣어야 한다\n    LLM->>INF: HTML이 깨지는 문제 발생\n    INF->>Optimizer: 인퍼런스 시간을 어떻게 해야 할지 고민\n    Optimizer->>LLM: 최적화 옵션 제안\n    LLM->>HTML: 최적화된 HTML 전달\n    Note right of HTML: HTML 깨짐 문제 해결",
+          "description": "Both sequence diagrams show a conversation between Alice, Bob, and Carl, with participant creation and destruction. The second example is identical, reinforcing participant actions and interactions."
+      },
+      "Class Diagram": {
+          "example1": "---\ntitle: Animal example\n---\nclassDiagram\n    note \"From Duck till Zebra\"\n    Animal <|-- Duck\n    note for Duck \"can fly\\ncan swim\\ncan dive\\ncan help in debugging\"\n    Animal <|-- Fish\n    Animal <|-- Zebra\n    Animal : +int age\n    Animal : +String gender\n    Animal: +isMammal()\n    Animal: +mate()\n    class Duck{\n        +String beakColor\n        +swim()\n        +quack()\n    }\n    class Fish{\n        -int sizeInFeet\n        -canEat()\n    }\n    class Zebra{\n        +bool is_wild\n        +run()\n    }",
+          "example2": "classDiagram\nclassA <|-- classB : implements\nclassC *-- classD : composition\nclassE o-- classF : aggregation",
+          "description": "The first class diagram models an animal hierarchy, showing attributes and methods for each class. The second example demonstrates class relationships such as inheritance, composition, and aggregation."
+      },
+      "Pie Chart": {
+          "example1": "pie title Pets adopted by volunteers\n    \"Dogs\" : 386\n    \"Cats\" : 85\n    \"Rats\" : 15",
+          "example2": "%%{init: {\"pie\": {\"textPosition\": 0.5}, \"themeVariables\": {\"pieOuterStrokeWidth\": \"5px\"}} }%%\npie showData\n    title Key elements in Product X\n    \"Calcium\" : 42.96\n    \"Potassium\" : 50.05\n    \"Magnesium\" : 10.01\n    \"Iron\" :  5",
+          "description": "The first pie chart shows the number of pets adopted by volunteers. The second example presents a customized pie chart with key elements of a product, using specific stroke widths and text positioning."
+      },
+      "Quadrant Chart": {
+          "example1": "quadrantChart\n    title Reach and engagement of campaigns\n    x-axis Low Reach --> High Reach\n    y-axis Low Engagement --> High Engagement\n    quadrant-1 We should expand\n    quadrant-2 Need to promote\n    quadrant-3 Re-evaluate\n    quadrant-4 May be improved\n    Campaign A: [0.3, 0.6]\n    Campaign B: [0.45, 0.23]\n    Campaign C: [0.57, 0.69]\n    Campaign D: [0.78, 0.34]\n    Campaign E: [0.40, 0.34]\n    Campaign F: [0.35, 0.78]",
+          "example2": "%%{init: {\"quadrantChart\": {\"chartWidth\": 400, \"chartHeight\": 400}, \"themeVariables\": {\"quadrant1TextFill\": \"#ff0000\"}} }%%\nquadrantChart\n  x-axis Urgent --> Not Urgent\n  y-axis Not Important --> \"Important ❤\"\n  quadrant-1 Plan\n  quadrant-2 Do\n  quadrant-3 Delegate\n  quadrant-4 Delete",
+          "description": "The first quadrant chart shows the reach and engagement of campaigns across four quadrants. The second example uses custom styling and a different axis setup for planning, delegation, and execution."
+      },
+      "Requirement Diagram": {
+          "example1": "requirementDiagram\n   requirement test_req {\n    id: 1\n   text: the test text.\n    risk: high\n    verifymethod: test\n    }\n   element test_entity {\n   type: simulation\n    }\n   test_entity - satisfies -> test_req",
+          "example2": "requirementDiagram\n\nrequirement test_req {\nid: 1\ntext: the test text.\nrisk: high\nverifymethod: test\n}\n\nfunctionalRequirement test_req2 {\nid: 1.1\ntext: the second test text.\nrisk: low\nverifymethod: inspection\n}\n\nperformanceRequirement test_req3 {\nid: 1.2\ntext: the third test text.\nrisk: medium\nverifymethod: demonstration\n}\n\ninterfaceRequirement test_req4 {\nid: 1.2.1\ntext: the fourth test text.\nrisk: medium\nverifymethod: analysis\n}\n\nphysicalRequirement test_req5 {\nid: 1.2.2\ntext: the fifth test text.\nrisk: medium\nverifymethod: analysis\n}\n\ndesignConstraint test_req6 {\nid: 1.2.3\ntext: the sixth test text.\nrisk: medium\nverifymethod: analysis\n}\n\nelement test_entity {\ntype: simulation\n}\n\nelement test_entity2 {\ntype: word doc\ndocRef: reqs/test_entity\n}\n\nelement test_entity3 {\ntype: \"test suite\"\ndocRef: github.com/all_the_tests\n}\n\ntest_entity - satisfies -> test_req2\ntest_req - traces -> test_req2\ntest_req - contains -> test_req3\ntest_req3 - contains -> test_req4\ntest_req4 - derives -> test_req5\ntest_req5 - refines -> test_req6\ntest_entity3 - verifies -> test_req5\ntest_req <- copies - test_entity2",
+          "description": "Both requirement diagrams outline requirements with risk levels and verification methods, but the second example expands on the complexity by adding multiple types of requirements, references, and verification elements."
+      },
+      "Gitgraph Diagram": {
+          "example1": "---\ntitle: Example Git diagram\n---\ngitGraph\n   commit\n   commit\n   branch develop\n   checkout develop\n   commit\n   commit\n   checkout main\n   merge develop\n   commit\n   commit",
+          "example2": "gitGraph\n   commit\n   commit\n   branch develop\n   commit\n   commit\n   commit\n   checkout main\n   commit\n   commit",
+          "description": "Both Git graphs demonstrate a branch creation and merging process. The second example has a more streamlined commit history with fewer actions before merging back to the main branch."
+      },
+      "Mindmaps": {
+          "example1": "mindmap\n  root((mindmap))\n    Origins\n      Long history\n      ::icon(fa fa-book)\n      Popularisation\n        British popular psychology author Tony Buzan\n    Research\n      On effectiveness<br/>and features\n      On Automatic creation\n        Uses\n            Creative techniques\n            Strategic planning\n            Argument mapping\n    Tools\n      Pen and paper\n      Mermaid",
+          "example2": "mindmap\n    id1[\"`**Root** with\na second line\nUnicode works too: 🤓`\"]\n      id2[\"`The dog in **the** hog... a *very long text* that wraps to a new line`\"]\n      id3[Regular labels still works]",
+          "description": "The first mindmap focuses on the history, research, and tools associated with mind mapping. The second example shows a mindmap with various nodes, demonstrating line wrapping and special character support."
+      },
+      "Timeline": {
+        "example1": "timeline\n    title History of Social Media Platform\n    2002 : LinkedIn\n    2004 : Facebook\n         : Google\n    2005 : Youtube\n    2006 : Twitter",
+        "example2": "timeline\n    title MermaidChart 2023 Timeline\n    section 2023 Q1 <br> Release Personal Tier\n        Bullet 1 : sub-point 1a : sub-point 1b\n             : sub-point 1c\n        Bullet 2 : sub-point 2a : sub-point 2b\n    section 2023 Q2 <br> Release XYZ Tier\n        Bullet 3 : sub-point <br> 3a : sub-point 3b\n             : sub-point 3c\n        Bullet 4 : sub-point 4a : sub-point 4b",
+        "description": "Two timeline examples: the first traces the history of social media platforms from 2002 to 2006, and the second describes the 2023 release timeline for MermaidChart with quarterly milestones."
+      },
+      "XY Chart": {
+          "example1": "xychart-beta\n    title \"Sales Revenue\"\n    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]\n    y-axis \"Revenue (in $)\" 4000 --> 11000\n    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]\n    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]",
+          "example2": "---\nconfig:\n    xyChart:\n        width: 900\n        height: 600\n    themeVariables:\n        xyChart:\n            titleColor: \"#ff0000\"\n---\nxychart-beta\n    title \"Sales Revenue\"\n    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]\n    y-axis \"Revenue (in $)\" 4000 --> 11000\n    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]\n    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]",
+          "description": "Both XY charts illustrate monthly sales revenue trends with bar and line data. The second example adds custom width, height, and title color configurations."
+      },
+      "Block Diagram": {
+          "example1": "block-beta\ncolumns 1\n  db((\"DB\"))\n  blockArrowId6<[\n  block:ID\n    A\n    B[\"A wide one in the middle\"]\n    C\n  end\n  space\n  D\n  ID --> D\n  C --> D\n  style B fill:#969,stroke:#333,stroke-width:4px",
+          "example2": "block-beta\n  columns 3\n  Start((\"Start\")) space:2\n  down<(\" \")>(down) space:2\n  Decision{{\"Make Decision\"}} right<(\"Yes\")>(right) Process1[\"Process A\"]\n  downAgain<(\"No\")>(down) space r3<(\"Done\")>(down)\n  Process2[\"Process B\"] r2<(\"Done\")>(right) End((\"End\"))\n\n  style Start fill:#969;\n  style End fill:#696;",
+          "description": "The first block diagram shows a system with a database and connections between blocks. The second example is a decision-making process diagram, with directional flow and decision points, styled with specific colors."
+      }
+  }
+}
